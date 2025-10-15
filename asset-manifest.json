@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/nepal-mart-app/static/css/main.21161c13.css",
-    "main.js": "/nepal-mart-app/static/js/main.f50c6204.js",
+    "main.js": "/nepal-mart-app/static/js/main.ac8ee1bf.js",
     "index.html": "/nepal-mart-app/index.html",
     "main.21161c13.css.map": "/nepal-mart-app/static/css/main.21161c13.css.map",
-    "main.f50c6204.js.map": "/nepal-mart-app/static/js/main.f50c6204.js.map"
+    "main.ac8ee1bf.js.map": "/nepal-mart-app/static/js/main.ac8ee1bf.js.map"
   },
   "entrypoints": [
     "static/css/main.21161c13.css",
-    "static/js/main.f50c6204.js"
+    "static/js/main.ac8ee1bf.js"
   ]
 }
