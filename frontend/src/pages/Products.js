@@ -10,7 +10,8 @@ const Products = () => {
       price: { npr: 5900, usd: 45 },
       category: 'boots',
       features: ['Waterproof', 'Durable Sole', 'Ankle Support', 'Traditional Craftsmanship'],
-      inStock: true
+      inStock: true,
+      image: '/images/himalayan-boots.jpg'
     },
     {
       _id: '2',
@@ -19,7 +20,8 @@ const Products = () => {
       price: { npr: 8200, usd: 62 },
       category: 'shoes',
       features: ['Full Grain Leather', 'Cushioned Insole', 'Classic Design'],
-      inStock: true
+      inStock: true,
+      image: '/images/leather-oxfords.jpg'
     },
     {
       _id: '3',
@@ -28,7 +30,8 @@ const Products = () => {
       price: { npr: 3800, usd: 29 },
       category: 'sandals',
       features: ['Hand Woven', 'Breathable', 'Lightweight'],
-      inStock: true
+      inStock: true,
+      image: '/images/woven-sandals.jpg'
     },
     {
       _id: '4',
@@ -37,7 +40,8 @@ const Products = () => {
       price: { npr: 9300, usd: 70 },
       category: 'boots',
       features: ['Waterproof', 'Insulated', 'Vibram Sole'],
-      inStock: true
+      inStock: true,
+      image: '/images/explorer-boots.jpg'
     },
     {
       _id: '5',
@@ -46,7 +50,8 @@ const Products = () => {
       price: { npr: 7500, usd: 57 },
       category: 'moccasins',
       features: ['Soft Leather', 'Flexible Sole', 'Hand Stitched'],
-      inStock: true
+      inStock: true,
+      image: '/images/leather-moccasins.jpg'
     },
     {
       _id: '6',
@@ -55,7 +60,8 @@ const Products = () => {
       price: { npr: 2500, usd: 19 },
       category: 'sandals',
       features: ['Traditional Design', 'Comfortable', 'Lightweight'],
-      inStock: true
+      inStock: true,
+      image: '/images/nepalese-sandals.jpg'
     }
   ];
 
@@ -71,8 +77,24 @@ const Products = () => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
         {products.map(product => (
           <div key={product._id} className="product-card">
-            <div style={{ width: '100%', height: '200px', backgroundColor: '#e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6b7280', fontSize: '3rem' }}>
-              {product.category === 'boots' ? 'í±¢' : product.category === 'sandals' ? 'í±¡' : 'í±ž'}
+            <div style={{ 
+              width: '100%', 
+              height: '200px', 
+              backgroundColor: '#e5e7eb', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              color: '#6b7280',
+              backgroundImage: product.image ? `url(${product.image})` : 'none',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}>
+              {!product.image && (
+                <span style={{ fontSize: '3rem' }}>
+                  {product.category === 'boots' ? 'í±¢' : product.category === 'sandals' ? 'í±¡' : 'í±ž'}
+                </span>
+              )}
             </div>
             <div style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '0.5rem' }}>

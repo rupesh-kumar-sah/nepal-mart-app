@@ -4,7 +4,6 @@ import { useParams, Link } from 'react-router-dom';
 const ProductDetail = () => {
   const { id } = useParams();
   
-  // Mock product data - in real app, you'd fetch this from API
   const product = {
     _id: id,
     name: 'Himalayan Trekking Boots',
@@ -15,12 +14,12 @@ const ProductDetail = () => {
     sizes: ['39', '40', '41', '42', '43'],
     colors: ['Brown', 'Black', 'Dark Brown'],
     inStock: true,
+    images: ['/images/himalayan-boots.jpg', '/images/himalayan-boots-2.jpg', '/images/himalayan-boots-3.jpg'],
     artisan: {
       name: 'Raj Kumar',
       story: 'Third generation shoemaker from Pokhara with over 20 years of experience in traditional boot making. Specializes in mountain footwear that combines traditional techniques with modern comfort.',
       location: 'Pokhara, Nepal'
-    },
-    images: ['/images/boots1.jpg', '/images/boots2.jpg']
+    }
   };
 
   return (
@@ -39,14 +38,18 @@ const ProductDetail = () => {
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center', 
-            color: '#6b7280', 
-            fontSize: '4rem', 
-            borderRadius: '0.5rem' 
+            color: '#6b7280',
+            backgroundImage: product.images && product.images[0] ? `url(${product.images[0]})` : 'none',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            borderRadius: '0.5rem'
           }}>
-            í±¢
+            {(!product.images || !product.images[0]) && (
+              <span style={{ fontSize: '4rem' }}>í±¢</span>
+            )}
           </div>
           <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-            {[1, 2, 3].map((img, index) => (
+            {product.images && product.images.map((img, index) => (
               <div key={index} style={{ 
                 width: '80px', 
                 height: '80px', 
@@ -54,10 +57,12 @@ const ProductDetail = () => {
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center', 
-                borderRadius: '0.375rem', 
-                fontSize: '1.5rem' 
+                borderRadius: '0.375rem',
+                backgroundImage: `url(${img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
               }}>
-                í±¢
+                {!img && <span style={{ fontSize: '1.5rem' }}>í±¢</span>}
               </div>
             ))}
           </div>

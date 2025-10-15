@@ -8,21 +8,32 @@ const Home = () => {
       name: 'Himalayan Trekking Boots',
       description: 'Handcrafted with traditional milk leather and premium water durability. Perfect for mountain adventures.',
       price: { npr: 5900, usd: 45 },
-      category: 'boots'
+      category: 'boots',
+      image: '/images/himalayan-boots.jpg'
     },
     {
       _id: '2',
       name: 'Premium Leather Oxfords',
       description: 'Chassis design with contemporary comfort landmarks for greater craftsmen.',
       price: { npr: 8200, usd: 62 },
-      category: 'shoes'
+      category: 'shoes',
+      image: '/images/leather-oxfords.jpg'
     },
     {
       _id: '3',
       name: 'Heritage Woven Sandals',
       description: 'Traditional language design with modern comfort technology.',
       price: { npr: 3800, usd: 29 },
-      category: 'sandals'
+      category: 'sandals',
+      image: '/images/woven-sandals.jpg'
+    },
+    {
+      _id: '4',
+      name: 'Classic Leather Moccasins',
+      description: 'Water resistant leather with traditional leather cutting techniques.',
+      price: { npr: 7500, usd: 57 },
+      category: 'moccasins',
+      image: '/images/leather-moccasins.jpg'
     }
   ];
 
@@ -79,11 +90,26 @@ const Home = () => {
       <section style={{ padding: '4rem 0', backgroundColor: '#f8fafc' }}>
         <div className="container">
           <h2 style={{ fontSize: '2.25rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '3rem' }}>Featured Products</h2>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-4">
             {featuredProducts.map(product => (
               <div key={product._id} className="product-card">
-                <div style={{ width: '100%', height: '200px', backgroundColor: '#e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6b7280', fontSize: '3rem' }}>
-                  í±ž
+                <div style={{ 
+                  width: '100%', 
+                  height: '200px', 
+                  backgroundColor: '#e5e7eb', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  color: '#6b7280',
+                  backgroundImage: product.image ? `url(${product.image})` : 'none',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}>
+                  {!product.image && (
+                    <span style={{ fontSize: '3rem' }}>
+                      {product.category === 'boots' ? 'í±¢' : product.category === 'sandals' ? 'í±¡' : 'í±ž'}
+                    </span>
+                  )}
                 </div>
                 <div style={{ padding: '1.5rem' }}>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem' }}>{product.name}</h3>

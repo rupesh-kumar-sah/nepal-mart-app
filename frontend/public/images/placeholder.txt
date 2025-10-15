@@ -1,0 +1,7 @@
+You can add actual product images here:
+- himalayan-boots.jpg
+- leather-oxfords.jpg  
+- woven-sandals.jpg
+- explorer-boots.jpg
+- leather-moccasins.jpg
+- nepalese-sandals.jpg
